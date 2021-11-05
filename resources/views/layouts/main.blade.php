@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{ __('Material Dashboard Laravel - Free Frontend Preset for Laravel') }}</title>
+    <title>{{ __('Gymtastic - Free Frontend Preset for Laravel') }}</title>
     <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('img/apple-icon.png') }}">
     <link rel="icon" type="image/png" href="{{ asset('img/apple-icon.png') }}">
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
@@ -25,8 +25,8 @@
         @guest()
             @include('layouts.page_templates.guest')
         @endguest
-        @if (auth()->check())
-        <div class="fixed-plugin">
+        <!-- @if (auth()->check())
+         <div class="fixed-plugin">
           <div class="dropdown show-dropdown">
             <a href="#" data-toggle="dropdown">
               <i class="fa fa-cog fa-2x"> </i>
@@ -70,12 +70,12 @@
               <li class="button-container">
                 <a href="https://www.creative-tim.com/product/material-dashboard-laravel" target="_blank" class="btn btn-primary btn-block">Free Download</a>
               </li>
-              <!-- <li class="header-title">Want more components?</li>
+              <li class="header-title">Want more components?</li>
                   <li class="button-container">
                       <a href="https://www.creative-tim.com/product/material-dashboard-pro" target="_blank" class="btn btn-warning btn-block">
                         Get the pro version
                       </a>
-                  </li> -->
+                  </li>
               <li class="button-container">
                 <a href="https://material-dashboard-laravel.creative-tim.com/docs/getting-started/laravel-setup.html" target="_blank" class="btn btn-default btn-block">
                   View Documentation
@@ -98,52 +98,13 @@
               </li>
             </ul>
           </div>
-        </div>
-        @endif
+        </div> 
+        @endif -->
         <!--   Core JS Files   -->
         <script src="{{ asset('js/core/jquery.min.js') }}"></script>
         <script src="{{ asset('js/core/popper.min.js') }}"></script>
         <script src="{{ asset('js/core/bootstrap-material-design.min.js') }}"></script>
         <script src="{{ asset('js/plugins/perfect-scrollbar.jquery.min.js') }}"></script>
-        <!-- Plugin for the momentJs  -->
-        <script src="{{ asset('js/plugins/moment.min.js') }}"></script>
-        <!--  Plugin for Sweet Alert -->
-        <script src="{{ asset('js/plugins/sweetalert2.js') }}"></script>
-        <!-- Forms Validations Plugin -->
-        <script src="{{ asset('js/plugins/jquery.validate.min.js') }}"></script>
-        <!-- Plugin for the Wizard, full documentation here: https://github.com/VinceG/twitter-bootstrap-wizard -->
-        <script src="{{ asset('js/plugins/jquery.bootstrap-wizard.js') }}"></script>
-        <!-- Plugin for Select, full documentation here: http://silviomoreto.github.io/bootstrap-select -->
-        <script src="{{ asset('js/plugins/bootstrap-selectpicker.js') }}"></script>
-        <!--  Plugin for the DateTimePicker, full documentation here: https://eonasdan.github.io/bootstrap-datetimepicker/ -->
-        <script src="{{ asset('js/plugins/bootstrap-datetimepicker.min.js') }}"></script>
-        <!--  DataTables.net Plugin, full documentation here: https://datatables.net/  -->
-        <script src="{{ asset('js/plugins/jquery.dataTables.min.js') }}"></script>
-        <!--	Plugin for Tags, full documentation here: https://github.com/bootstrap-tagsinput/bootstrap-tagsinputs  -->
-        <script src="{{ asset('js/plugins/bootstrap-tagsinput.js') }}"></script>
-        <!-- Plugin for Fileupload, full documentation here: http://www.jasny.net/bootstrap/javascript/#fileinput -->
-        <script src="{{ asset('js/plugins/jasny-bootstrap.min.js') }}"></script>
-        <!--  Full Calendar Plugin, full documentation here: https://github.com/fullcalendar/fullcalendar    -->
-        <script src="{{ asset('js/plugins/fullcalendar.min.js') }}"></script>
-        <!-- Vector Map plugin, full documentation here: http://jvectormap.com/documentation/ -->
-        <script src="{{ asset('js/plugins/jquery-jvectormap.js') }}"></script>
-        <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
-        <script src="{{ asset('js/plugins/nouislider.min.js') }}"></script>
-        <!-- Include a polyfill for ES6 Promises (optional) for IE11, UC Browser and Android browser support SweetAlert -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
-        <!-- Library for adding dinamically elements -->
-        <script src="{{ asset('js/plugins/arrive.min.js') }}"></script>
-        <!--  Google Maps Plugin    -->
-        <!--<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE'"></script>-->
-        <!-- Chartist JS -->
-        <script src="{{ asset('js/plugins/chartist.min.js') }}"></script>
-        <!--  Notifications Plugin    -->
-        <script src="{{ asset('js/plugins/bootstrap-notify.js') }}"></script>
-        <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
-        <script src="{{ asset('js/material-dashboard.js?v=2.1.1') }}" type="text/javascript"></script>
-        <!-- Material Dashboard DEMO methods, don't include it in your project! -->
-        <script src="{{ asset('material') }}/demo/demo.js"></script>
-        <script src="{{ asset('js/settings.js') }}"></script>
-        @stack('js')
+        @stack('js');
     </body>
 </html>
