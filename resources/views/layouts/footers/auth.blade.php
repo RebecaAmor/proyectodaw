@@ -3,16 +3,16 @@
     <nav class="float-left">
       <ul>
         <li>
-          <a href="https://www.creative-tim.com">
-              {{ __('Creative Tim') }}
+          <a href="#">
+              {{ __('Contacto') }}
           </a>
         </li>
         <li>
-          <a href="https://creative-tim.com/presentation">
+          <a href="#">
               {{ __('About Us') }}
           </a>
         </li>
-        <li>
+        <!-- <li>
           <a href="http://blog.creative-tim.com">
               {{ __('Blog') }}
           </a>
@@ -21,15 +21,14 @@
           <a href="https://www.creative-tim.com/license">
               {{ __('Licenses') }}
           </a>
-        </li>
+        </li> -->
       </ul>
     </nav>
     <div class="copyright float-right">
       &copy;
       <script>
         document.write(new Date().getFullYear())
-      </script>, made with <i class="material-icons">favorite</i> by
-      <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a> and <a href="https://www.updivision.com" target="_blank">UPDIVISION</a> for a better web.
+      </script>, made with made with <i class="material-icons">favorite</i> by Rebeca Amor.
     </div>
   </div>
 </footer>

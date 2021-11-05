@@ -1,4 +1,4 @@
-@extends('layouts.main', ['activePage' => 'dashboard', 'titlePage' => __('Dashboard')])
+@extends('layouts.main', ['activePage' => 'dashboard', 'titlePage' => __('Mi panel')])
 
 @section('content')
   <div class="content">
@@ -10,15 +10,15 @@
               <div class="card-icon">
                 <i class="material-icons">content_copy</i>
               </div>
-              <p class="card-category">Used Space</p>
-              <h3 class="card-title">49/50
-                <small>GB</small>
+              <p class="card-category">Clases disfrutadas</p>
+              <h3 class="card-title">8/12
+                <small>Clases</small>
               </h3>
             </div>
             <div class="card-footer">
               <div class="stats">
                 <i class="material-icons text-danger">warning</i>
-                <a href="#pablo">Get More Space...</a>
+                <a href="#">Ampliar</a>
               </div>
             </div>
           </div>
@@ -29,12 +29,12 @@
               <div class="card-icon">
                 <i class="material-icons">store</i>
               </div>
-              <p class="card-category">Revenue</p>
-              <h3 class="card-title">$34,245</h3>
+              <p class="card-category">Suscripción</p>
+              <h3 class="card-title">75,95 €</h3>
             </div>
             <div class="card-footer">
               <div class="stats">
-                <i class="material-icons">date_range</i> Last 24 Hours
+                <i class="material-icons">date_range</i> Plan mensual 12 clases
               </div>
             </div>
           </div>
@@ -45,12 +45,12 @@
               <div class="card-icon">
                 <i class="material-icons">info_outline</i>
               </div>
-              <p class="card-category">Fixed Issues</p>
-              <h3 class="card-title">75</h3>
+              <p class="card-category">Clases canceladas</p>
+              <h3 class="card-title">3</h3>
             </div>
             <div class="card-footer">
               <div class="stats">
-                <i class="material-icons">local_offer</i> Tracked from Github
+                <i class="material-icons">local_offer</i> Ver historial
               </div>
             </div>
           </div>
@@ -129,7 +129,7 @@
             <div class="card-header card-header-tabs card-header-primary">
               <div class="nav-tabs-navigation">
                 <div class="nav-tabs-wrapper">
-                  <span class="nav-tabs-title">Tasks:</span>
+                  <span class="nav-tabs-title">Mis sesiones:</span>
                   <ul class="nav nav-tabs" data-tabs="tabs">
                     <li class="nav-item">
                       <a class="nav-link active" href="#profile" data-toggle="tab">
@@ -418,11 +418,11 @@
   </div>
 @endsection
 
-@push('js')
+<!-- @push('js')
   <script>
     $(document).ready(function() {
       // Javascript method's body can be found in assets/js/demos.js
       md.initDashboardPageCharts();
     });
   </script>
-@endpush
+@endpush -->

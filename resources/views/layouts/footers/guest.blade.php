@@ -8,7 +8,7 @@
             </a>
             </li>
             <li>
-            <a href="https://creative-tim.com/presentation">
+            <a href="#">
                 {{ __('About Us') }}
             </a>
             </li>
