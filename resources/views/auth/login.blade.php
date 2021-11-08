@@ -26,8 +26,8 @@
             </div>
           </div>
           <div class="card-body">
-            <p class="card-description text-center">{{ __('Inicia sesión con tu') }} <strong>email</strong> {{ __(' y tu ') }}<strong>contraseña</strong> </p>
-            <div class="bmd-form-group{{ $errors->has('email') ? ' has-danger' : '' }}">
+            <p class="card-description text-center">{{ __('Inicia sesión con tu') }} <strong>NIF</strong> {{ __(' y tu ') }}<strong>contraseña</strong></p>
+            <!-- <div class="bmd-form-group{{ $errors->has('email') ? ' has-danger' : '' }}">
               <div class="input-group">
                 <div class="input-group-prepend">
                   <span class="input-group-text">
@@ -39,6 +39,22 @@
               @if ($errors->has('email'))
                 <div id="email-error" class="error text-danger pl-3" for="email" style="display: block;">
                   <strong>{{ $errors->first('email') }}</strong>
+                </div>
+              @endif
+            </div> -->
+            <!-- NIF -->
+            <div class="bmd-form-group{{ $errors->has('nif') ? ' has-danger' : '' }}">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <i class="material-icons">badge</i>
+                  </span>
+                </div>
+                <input type="nif" name="nif" class="form-control" placeholder="{{ __('NIF...') }}" value="{{ old('nif', null) }}" required autocomplete="nif" autofocus>
+              </div>
+              @if ($errors->has('nif'))
+                <div id="nif-error" class="error text-danger pl-3" for="nif" style="display: block;">
+                  <strong>{{ $errors->first('nif') }}</strong>
                 </div>
               @endif
             </div>
