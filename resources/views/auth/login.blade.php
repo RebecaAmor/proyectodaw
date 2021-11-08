@@ -27,7 +27,7 @@
           </div>
           <div class="card-body">
             <p class="card-description text-center">{{ __('Inicia sesión con tu') }} <strong>NIF</strong> {{ __(' y tu ') }}<strong>contraseña</strong></p>
-            <!-- <div class="bmd-form-group{{ $errors->has('email') ? ' has-danger' : '' }}">
+            <div class="bmd-form-group{{ $errors->has('email') ? ' has-danger' : '' }}">
               <div class="input-group">
                 <div class="input-group-prepend">
                   <span class="input-group-text">
@@ -41,9 +41,9 @@
                   <strong>{{ $errors->first('email') }}</strong>
                 </div>
               @endif
-            </div> -->
+            </div>
             <!-- NIF -->
-            <div class="bmd-form-group{{ $errors->has('nif') ? ' has-danger' : '' }}">
+            <!-- <div class="bmd-form-group{{ $errors->has('nif') ? ' has-danger' : '' }}">
               <div class="input-group">
                 <div class="input-group-prepend">
                   <span class="input-group-text">
@@ -57,7 +57,7 @@
                   <strong>{{ $errors->first('nif') }}</strong>
                 </div>
               @endif
-            </div>
+            </div> -->
             <div class="bmd-form-group{{ $errors->has('password') ? ' has-danger' : '' }} mt-3">
               <div class="input-group">
                 <div class="input-group-prepend">
