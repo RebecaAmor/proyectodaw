@@ -1,4 +1,4 @@
-<div class="sidebar" data-color="orange" data-background-color="white" data-image="{{ asset('material') }}/img/sidebar-1.jpg">
+<div class="sidebar" data-color="orange" data-background-color="white" data-image="{{ asset('img/sidebar-1.jpg') }}">
   <!--
       Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
 
@@ -20,7 +20,7 @@
       <li class="nav-item {{ ($activePage == 'profile' || $activePage == 'user-management') ? ' active' : '' }}">
         <a class="nav-link" data-toggle="collapse" href="#laravelExample" aria-expanded="true">
           <i><img style="width:25px" src="{{ asset('img/laravel.svg') }}"></i>
-          <p>{{ __('Laravel Examples') }}
+          <p>{{ __('Susprinción') }}
             <b class="caret"></b>
           </p>
         </a>
@@ -28,32 +28,32 @@
           <ul class="nav">
             <li class="nav-item{{ $activePage == 'profile' ? ' active' : '' }}">
               <a class="nav-link" href="#">
-                <span class="sidebar-mini"> UP </span>
-                <span class="sidebar-normal">{{ __('User profile') }} </span>
+                <i class="material-icons">bookmark</i>
+                <span class="sidebar-normal">{{ __('Sesiones individuales') }} </span>
               </a>
             </li>
             <li class="nav-item{{ $activePage == 'user-management' ? ' active' : '' }}">
               <a class="nav-link" href="#">
-                <span class="sidebar-mini"> UM </span>
-                <span class="sidebar-normal"> {{ __('User Management') }} </span>
+              <i class="material-icons">bookmarks</i>
+                <span class="sidebar-normal"> {{ __('Bonos') }} </span>
               </a>
             </li>
           </ul>
         </div>
       </li>
       <li class="nav-item{{ $activePage == 'table' ? ' active' : '' }}">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="{{ resources('pages.table_list') }}">
           <i class="material-icons">content_paste</i>
-            <p>{{ __('Table List') }}</p>
+            <p>{{ __('Clases disponibles') }}</p>
         </a>
       </li>
       <li class="nav-item{{ $activePage == 'typography' ? ' active' : '' }}">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="">
           <i class="material-icons">library_books</i>
-            <p>{{ __('Typography') }}</p>
+            <p>{{ __('Lista de clases y horarios') }}</p>
         </a>
       </li>
-      <li class="nav-item{{ $activePage == 'icons' ? ' active' : '' }}">
+      <!-- <li class="nav-item{{ $activePage == 'icons' ? ' active' : '' }}">
         <a class="nav-link" href="#">
           <i class="material-icons">bubble_chart</i>
           <p>{{ __('Icons') }}</p>
@@ -64,19 +64,19 @@
           <i class="material-icons">location_ons</i>
             <p>{{ __('Maps') }}</p>
         </a>
-      </li>
+      </li> -->
       <li class="nav-item{{ $activePage == 'notifications' ? ' active' : '' }}">
         <a class="nav-link" href="#">
-          <i class="material-icons">notifications</i>
-          <p>{{ __('Notifications') }}</p>
+          <i class="material-icons">event</i>
+          <p>{{ __('Mis reservas') }}</p>
         </a>
       </li>
-      <li class="nav-item{{ $activePage == 'language' ? ' active' : '' }}">
+      <!-- <li class="nav-item{{ $activePage == 'language' ? ' active' : '' }}">
         <a class="nav-link" href="#">
           <i class="material-icons">language</i>
           <p>{{ __('RTL Support') }}</p>
         </a>
-      </li>
+      </li> -->
       <li class="nav-item active-pro{{ $activePage == 'upgrade' ? ' active' : '' }}">
         <a class="nav-link text-white bg-danger" href="#">
           <i class="material-icons text-white">unarchive</i>
