@@ -5,16 +5,16 @@
       Tip 2: you can also add an image using data-image tag
   -->
   <div class="logo">
-    <a href="https://creative-tim.com/" class="simple-text logo-normal">
+    <a href="http://127.0.0.1:8000/home" class="simple-text logo-normal">
       {{ __('Gymtastic') }}
     </a>
   </div>
   <div class="sidebar-wrapper">
     <ul class="nav">
-      <li class="nav-item{{ $activePage == 'dashboard' ? ' active' : '' }}">
-        <a class="nav-link" href="{{ route('home') }}">
+      <li class="nav-item{{ $activePage == 'users' ? ' active' : '' }}">
+        <a class="nav-link" href="http://127.0.0.1:8000/users/create">
           <i class="material-icons">dashboard</i>
-            <p>{{ __('Mi panel de socio') }}</p>
+            <p>{{ __('Crear socio') }}</p>
         </a>
       </li>
       <li class="nav-item {{ ($activePage == 'profile' || $activePage == 'user-management') ? ' active' : '' }}">
@@ -42,13 +42,13 @@
         </div>
       </li>
       <li class="nav-item{{ $activePage == 'table' ? ' active' : '' }}">
-        <a class="nav-link" href="{{ resources('pages.table_list') }}">
+        <a class="nav-link" href="#">
           <i class="material-icons">content_paste</i>
             <p>{{ __('Clases disponibles') }}</p>
         </a>
       </li>
       <li class="nav-item{{ $activePage == 'typography' ? ' active' : '' }}">
-        <a class="nav-link" href="">
+        <a class="nav-link" href="#">
           <i class="material-icons">library_books</i>
             <p>{{ __('Lista de clases y horarios') }}</p>
         </a>
