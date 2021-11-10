@@ -11,10 +11,16 @@
   </div>
   <div class="sidebar-wrapper">
     <ul class="nav">
-      <li class="nav-item{{ $activePage == 'users' ? ' active' : '' }}">
+      <li class="nav-item{{ $activePage == 'create' ? ' active' : '' }}">
         <a class="nav-link" href="http://127.0.0.1:8000/users/create">
           <i class="material-icons">dashboard</i>
             <p>{{ __('Crear socio') }}</p>
+        </a>
+      </li>
+      <li class="nav-item{{ $activePage == 'users' ? ' active' : '' }}">
+        <a class="nav-link" href="http://127.0.0.1:8000/users">
+          <i class="material-icons">dashboard</i>
+            <p>{{ __('Socios registrados') }}</p>
         </a>
       </li>
       <li class="nav-item {{ ($activePage == 'profile' || $activePage == 'user-management') ? ' active' : '' }}">
