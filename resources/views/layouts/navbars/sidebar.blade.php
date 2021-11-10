@@ -12,7 +12,7 @@
   <div class="sidebar-wrapper">
     <ul class="nav">
       <li class="nav-item{{ $activePage == 'create' ? ' active' : '' }}">
-        <a class="nav-link" href="http://127.0.0.1:8000/users/create">
+        <a class="nav-link" href="{{ route('users.create') }}">
           <i class="material-icons">dashboard</i>
             <p>{{ __('Crear socio') }}</p>
         </a>

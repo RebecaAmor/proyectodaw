@@ -12,6 +12,11 @@
                                 <p class="card-category">{{ __('Lista de socios abonados') }}</p>
                             </div>
                             <div class="card-body">
+                            @if (session('success'))
+                            <div class="alert alert-success" role="success">
+                                {{session('success')}}
+                            </div>
+                            @endif
                                 <div class="row">
                                     <div class="col-md-12 text-right">
                                         <a href="{{ route('users.create') }}" class="btn btn-sm btn-primary">Agregar socio</a>
@@ -36,14 +41,12 @@
                                                     <td>{{ $user->email}}</td>
                                                     <td>{{ $user->created_at}}</td>
                                                     <td class="td-actions text-right">
-                                                        <button class="btn btn btn-info" type="button">
-                                                        <i class="material-icons">person</i>
+                                                        <a href="{{route('users.show', $user->id)}}" class="btn btn-info"><i class="material-icons">info</i></a>
+                                                        <button class="btn btn btn-warning" type="button">
+                                                        <i class="material-icons">edit</i>
                                                         </button>
-                                                        <button class="btn btn btn-info" type="button">
-                                                        <i class="material-icons">person</i>
-                                                        </button>
-                                                        <button class="btn btn btn-info" type="button">
-                                                        <i class="material-icons">person</i>
+                                                        <button class="btn btn btn-danger" type="button">
+                                                        <i class="material-icons">disabled_by_default</i>
                                                         </button>
                                                     </td>
                                                 </tr>

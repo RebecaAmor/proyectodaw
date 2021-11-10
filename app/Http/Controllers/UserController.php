@@ -18,6 +18,11 @@ class UserController extends Controller
 
     public function store(Request $request){
         User::create($request->all());
-        return redirect()->route('users.index');
+        return redirect()->route('users.index')->with('success', 'Socio dado de alta correctamente');
+    }
+
+    public function show(User $user){
+        // $user=User::findOrFail($id);
+        return view('users.show', compact('user'));
     }
 }
