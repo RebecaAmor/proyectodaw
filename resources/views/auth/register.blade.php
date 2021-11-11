@@ -69,6 +69,21 @@
                 </div>
               @endif
             </div>
+            <div class="bmd-form-group{{ $errors->has('bday') ? ' has-danger' : '' }} mt-3">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <i class="material-icons">today</i>
+                  </span>
+                </div>
+                <input type="date" name="bday" class="form-control" placeholder="{{ __('Fecha de nacimiento...') }}" value="{{ old('bday') }}" required autocomplete="bday">
+              </div>
+              @if ($errors->has('bday'))
+                <div id="bday-error" class="error text-danger pl-3" for="bday" style="display: block;">
+                  <strong>{{ $errors->first('bday') }}</strong>
+                </div>
+              @endif
+            </div>
             <div class="bmd-form-group{{ $errors->has('password') ? ' has-danger' : '' }} mt-3">
               <div class="input-group">
                 <div class="input-group-prepend">

@@ -20,12 +20,13 @@
                                                 <p class="description">
                                                     {{$user->nif}}<br>
                                                     {{$user->email}}<br>
+                                                    {{$user->bday}}<br>
                                                     {{$user->created_at}}<br>
                                                 </p>
                                             </div>
                                         </p>
                                         <div class="card-description">
-                                            {{$user->email}}
+                                            {{$user->info}}
                                         </div>
                                     </div>
                                     <div class="card-footer ml-auto mr-auto">

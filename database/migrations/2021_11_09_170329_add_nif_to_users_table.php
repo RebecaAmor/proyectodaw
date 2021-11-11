@@ -14,7 +14,7 @@ class AddNifToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            //
+            $table->string('nif')->unique();
         });
     }
 
