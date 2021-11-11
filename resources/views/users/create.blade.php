@@ -31,12 +31,6 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <label for="address" class="col-sm-2 col-form-label">Dirección</label>
-                                <div class="col-sm-7">
-                                    <input type="address" class="form-control" name="address" placeholder="Domicilio...">
-                                </div>
-                            </div>
-                            <div class="row">
                                 <label for="bday" class="col-sm-2 col-form-label">Fecha de nacimiento</label>
                                 <div class="col-sm-7">
                                     <input type="date" class="form-control" name="bday" placeholder="DD/MM/AAAA">
