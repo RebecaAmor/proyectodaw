@@ -40,3 +40,7 @@ Route::post('/users', [App\Http\Controllers\UserController::class, 'store'])->na
 Route::get('users', [App\Http\Controllers\UserController::class, 'index'])->name('users.index');
 
 Route::get('/users/{user}', [App\Http\Controllers\UserController::class, 'show'])->name('users.show');
+
+Route::get('/users/{user}/edit', [App\Http\Controllers\UserController::class, 'edit'])->name('users.edit');
+
+Route::put('/users/{user}', [App\Http\Controllers\UserController::class, 'update'])->name('users.update');
