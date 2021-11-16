@@ -43,9 +43,13 @@
                                                     <td class="td-actions text-right">
                                                         <a href="{{route('users.show', $user->id)}}" class="btn btn-info"><i class="material-icons">info</i></a>
                                                         <a href="{{route('users.edit', $user->id)}}" class="btn btn-warning"><i class="material-icons">edit</i></a>
-                                                        <button class="btn btn btn-danger" type="button">
-                                                        <i class="material-icons">disabled_by_default</i>
+                                                        <form action="{{route('users.delete', $user->id)}}" method="post" style="display:inline-block;" onsubmit="return confirm('Se van a eliminar todos los datos del usuario de forma definitiva')">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button class="btn btn btn-danger" type="submit" rel="tooltip">
+                                                        <i class="material-icons">close</i>
                                                         </button>
+                                                        </form>
                                                     </td>
                                                 </tr>
                                             @endforeach

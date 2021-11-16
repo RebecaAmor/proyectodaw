@@ -48,4 +48,10 @@ class UserController extends Controller
         $user->update($data);
         return redirect()->route('users.index')->with('success', 'Datos guardados correctamente');
     }
+
+    public function destroy(User $user){
+        $user->delete();
+        return back()->with('success', 'Usuario dado de baja correctamente');
+    }
+
 }
