@@ -23,6 +23,18 @@
             <p>{{ __('Socios registrados') }}</p>
         </a>
       </li>
+      <li class="nav-item{{ $activePage == 'tcreate' ? ' active' : '' }}">
+        <a class="nav-link" href="{{ route('admin.tcreate') }}">
+          <i class="material-icons">dashboard</i>
+            <p>{{ __('Agregar entrenador') }}</p>
+        </a>
+      </li>
+      <li class="nav-item{{ $activePage == 'trainners' ? ' active' : '' }}">
+        <a class="nav-link" href="{{ route('admin.tindex') }}">
+          <i class="material-icons">dashboard</i>
+            <p>{{ __('Entrenadores disponibles') }}</p>
+        </a>
+      </li>
       <li class="nav-item {{ ($activePage == 'profile' || $activePage == 'user-management') ? ' active' : '' }}">
         <a class="nav-link" data-toggle="collapse" href="#laravelExample" aria-expanded="true">
           <i><img style="width:25px" src="{{ asset('img/laravel.svg') }}"></i>

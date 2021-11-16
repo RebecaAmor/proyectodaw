@@ -33,6 +33,7 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+
 Route::get('/users/create', [App\Http\Controllers\UserController::class, 'create'])->name('users.create');
 
 Route::post('/users', [App\Http\Controllers\UserController::class, 'store'])->name('users.store');
@@ -46,3 +47,18 @@ Route::get('/users/{user}/edit', [App\Http\Controllers\UserController::class, 'e
 Route::put('/users/{user}', [App\Http\Controllers\UserController::class, 'update'])->name('users.update');
 
 Route::delete('/users/{user}', [App\Http\Controllers\UserController::class, 'destroy'])->name('users.delete');
+
+
+Route::get('/admin/tcreate', [App\Http\Controllers\UserController::class, 'tcreate'])->name('admin.tcreate');
+
+Route::post('/admin', [App\Http\Controllers\UserController::class, 'tstore'])->name('admin.tstore');
+
+Route::get('trainners', [App\Http\Controllers\UserController::class, 'tindex'])->name('admin.tindex');
+
+Route::get('/admin/{trainner}', [App\Http\Controllers\UserController::class, 'tshow'])->name('admin.tshow');
+
+Route::get('/admin/{trainner}/tedit', [App\Http\Controllers\UserController::class, 'tedit'])->name('admin.tedit');
+
+Route::put('/admin/{trainner}', [App\Http\Controllers\UserController::class, 'tupdate'])->name('admin.tupdate');
+
+Route::delete('/admin/{trainner}', [App\Http\Controllers\UserController::class, 'tdestroy'])->name('admin.tdelete');
