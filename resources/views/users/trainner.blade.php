@@ -15,25 +15,25 @@
                             <div class="row">
                                 <label for="name" class="col-sm-2 col-form-label">Nombre completo</label>
                                 <div class="col-sm-7">
-                                    <input type="text" class="form-control" name="name" placeholder="Nombre del socio..." autofocus>
+                                    <input type="text" class="form-control" name="tname" placeholder="Nombre del socio..." autofocus>
                                 </div>
                             </div>
                             <div class="row">
                                 <label for="nif" class="col-sm-2 col-form-label">NIF</label>
                                 <div class="col-sm-7">
-                                    <input type="text" class="form-control" name="nif" placeholder="Número de DNI...">
+                                    <input type="text" class="form-control" name="tnif" placeholder="Número de DNI...">
                                 </div>
                             </div>
                             <div class="row">
                                 <label for="email" class="col-sm-2 col-form-label">Correo electrónico</label>
                                 <div class="col-sm-7">
-                                    <input type="email" class="form-control" name="email" placeholder="email@email.com...">
+                                    <input type="email" class="form-control" name="tmail" placeholder="email@email.com...">
                                 </div>
                             </div>
                             <div class="row">
                                 <label for="bday" class="col-sm-2 col-form-label">Fecha de nacimiento</label>
                                 <div class="col-sm-7">
-                                    <input type="date" class="form-control" name="bday" placeholder="DD/MM/AAAA">
+                                    <input type="date" class="form-control" name="tbday" placeholder="DD/MM/AAAA">
                                 </div>
                             </div>
                             <div class="row">
