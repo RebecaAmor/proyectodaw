@@ -33,7 +33,7 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-
+//RUTAS USUARIOS - Crear, almacenar, listar, mostrar, modificar, actualizar y eliminar.
 Route::get('/users/create', [App\Http\Controllers\UserController::class, 'create'])->name('users.create');
 
 Route::post('/users', [App\Http\Controllers\UserController::class, 'store'])->name('users.store');
@@ -48,17 +48,29 @@ Route::put('/users/{user}', [App\Http\Controllers\UserController::class, 'update
 
 Route::delete('/users/{user}', [App\Http\Controllers\UserController::class, 'destroy'])->name('users.delete');
 
+//RUTAS ADMIN - Crear, almacenar, listar, mostrar, modificar, actualizar y eliminar.
+Route::group(['middleware'=>'auth'], function(){ //"Group" agrupa varias rutas que se muestran solo para determinados usuarios
+    Route::get('/admin/tcreate', [App\Http\Controllers\UserController::class, 'tcreate'])->name('admin.tcreate');
+    Route::post('/trainners', [App\Http\Controllers\UserController::class, 'tstore'])->name('admin.tstore');
+    Route::get('trainners', [App\Http\Controllers\UserController::class, 'tindex'])->name('admin.tindex');
+    Route::get('/admin/{trainner}', [App\Http\Controllers\UserController::class, 'tshow'])->name('admin.tshow');
+    Route::get('/admin/{trainner}/tedit', [App\Http\Controllers\UserController::class, 'tedit'])->name('admin.tedit');
+    Route::put('/admin/{trainner}', [App\Http\Controllers\UserController::class, 'tupdate'])->name('admin.tupdate');
+    Route::delete('/admin/{trainner}', [App\Http\Controllers\UserController::class, 'tdestroy'])->name('admin.tdelete');
+    
+    Route::resource('permissions', App\Http\Controllers\PermissionController::class);
+    Route::resource('roles', App\Http\Controllers\RoleController::class);
+});
 
-Route::get('/admin/tcreate', [App\Http\Controllers\UserController::class, 'tcreate'])->name('admin.tcreate');
+//RUTAS ACTIVIDADES
+Route::get('/evento/form',[App\Http\Controllers\ControllerEvent::class, 'form'])->name('evento.form');
 
-Route::post('/admin', [App\Http\Controllers\UserController::class, 'tstore'])->name('admin.tstore');
+Route::post('/evento/create',[App\Http\Controllers\ControllerEvent::class, 'create'])->name('evento.create');
 
-Route::get('trainners', [App\Http\Controllers\UserController::class, 'tindex'])->name('admin.tindex');
+Route::get('/evento/details/{id}',[App\Http\Controllers\ControllerEvent::class, 'details'])->name('evento.details');
 
-Route::get('/admin/{trainner}', [App\Http\Controllers\UserController::class, 'tshow'])->name('admin.tshow');
+Route::get('/evento/index',[App\Http\Controllers\ControllerEvent::class, 'index'])->name('evento.index');
 
-Route::get('/admin/{trainner}/tedit', [App\Http\Controllers\UserController::class, 'tedit'])->name('admin.tedit');
+Route::get('/evento/index/{month}',[App\Http\Controllers\ControllerEvent::class, 'index_month'])->name('evento.index_month');
 
-Route::put('/admin/{trainner}', [App\Http\Controllers\UserController::class, 'tupdate'])->name('admin.tupdate');
-
-Route::delete('/admin/{trainner}', [App\Http\Controllers\UserController::class, 'tdestroy'])->name('admin.tdelete');
+Route::post('/evento/calendario',[App\Http\Controllers\ControllerEvent::class, 'calendario'])->name('evento.calendario');

@@ -58,15 +58,6 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <label for="details" class="col-sm-2 col-form-label">Lesiones físicas</label>
-                                <div class="col-sm-7">
-                                    <label><input type="radio" id="yes" name="info" value="yes"> Sí </label>
-                                    <br>
-                                    <label><input type="radio" id="no" name="info" value="no"> No </label>
-                                    <!-- <textarea class="form-control" name="details" placeholder="Lesiones, problemas físicos..."></textarea> -->
-                                </div>
-                            </div>
-                            <div class="row">
                                 <label for="password" class="col-sm-2 col-form-label">Contraseña</label>
                                 <div class="col-sm-7">
                                     <input type="password" class="form-control" name="password">

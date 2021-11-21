@@ -41,9 +41,10 @@ class UserController extends Controller
             'name'=>'required|min:3',
             'nif'=>'required|max:9',
             'email'=>'required|email|unique:users',
+            'bday'=>'required|max:11',
             'password'=>'required|min:8',
         ]);
-        $user=User::create($request->only('name','nif','email')
+        $user=User::create($request->only('name','nif','email','bday')
         +['password'=>bcrypt($request->input('password')),]);
         return redirect()->route('users.show', $user->id)->with('success', 'Socio dado de alta correctamente');
     }

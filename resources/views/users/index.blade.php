@@ -39,6 +39,7 @@
                                                     <td>{{ $user->nif}}</td>
                                                     <td>{{ $user->name}}</td>
                                                     <td>{{ $user->email}}</td>
+                                                    <td>{{ $user->email}}</td>
                                                     <td>{{ $user->created_at}}</td>
                                                     <td class="td-actions text-right">
                                                         <a href="{{route('users.show', $user->id)}}" class="btn btn-info"><i class="material-icons">info</i></a>
