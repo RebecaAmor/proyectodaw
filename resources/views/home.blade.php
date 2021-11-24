@@ -79,7 +79,7 @@
               <div class="ct-chart" id="dailySalesChart"></div>
             </div>
             <div class="card-body">
-              <h4 class="card-title">Daily Sales</h4>
+              <h4 class="card-title">GOLD</h4>
               <p class="card-category">
                 <span class="text-success"><i class="fa fa-long-arrow-up"></i> 55% </span> increase in today sales.</p>
             </div>
@@ -96,7 +96,7 @@
               <div class="ct-chart" id="websiteViewsChart"></div>
             </div>
             <div class="card-body">
-              <h4 class="card-title">Email Subscriptions</h4>
+              <h4 class="card-title">SILVER</h4>
               <p class="card-category">Last Campaign Performance</p>
             </div>
             <div class="card-footer">
@@ -112,7 +112,7 @@
               <div class="ct-chart" id="completedTasksChart"></div>
             </div>
             <div class="card-body">
-              <h4 class="card-title">Completed Tasks</h4>
+              <h4 class="card-title">BRONZE</h4>
               <p class="card-category">Last Campaign Performance</p>
             </div>
             <div class="card-footer">
@@ -123,7 +123,7 @@
           </div>
         </div>
       </div>
-      <div class="row">
+      <!-- <div class="row">
         <div class="col-lg-6 col-md-12">
           <div class="card">
             <div class="card-header card-header-tabs card-header-primary">
@@ -413,7 +413,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
 @endsection

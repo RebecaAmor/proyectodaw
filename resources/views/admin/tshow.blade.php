@@ -29,14 +29,16 @@
                                             {{$trainner->cv}}
                                         </div>
                                     </div>
+                                    @can('trainner_tedit')
                                     <div class="card-footer ml-auto mr-auto">
                                         <div class="button-container">
                                             <a href="{{route('admin.tedit', $trainner->id)}}" class="btn btn-sm btn-primary">Modificar</a>
                                         </div>
                                     </div>
+                                    @endcan
                                 </div>
                             </div>
-                        </div>    
+                        </div>
                     </div>
                 </div>
             </div>

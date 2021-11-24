@@ -17,6 +17,7 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
+    //Página que se muestra al registrarse
     public const HOME = '/home';
 
     /**

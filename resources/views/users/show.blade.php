@@ -1,4 +1,4 @@
-@extends('layouts.main', ['activePage'=>'users', 'titlePage'=>'Información de socio'])
+@extends('layouts.main', ['activePage'=>'profile', 'titlePage'=>'Información de socio'])
 @section('content')
 <div class="content">
     <div class="container-fluid">
@@ -22,6 +22,11 @@
                                                     {{$user->email}}<br>
                                                     {{$user->bday}}<br>
                                                     {{$user->created_at}}<br>
+                                                    @forelse ($user->roles as $role)
+                                                        <span class="badge rounded-pill bg-dark text-white">{{ $role->name }}</span>
+                                                    @empty
+                                                        <span class="badge badge-danger bg-danger">No User</span>
+                                                    @endforelse
                                                 </p>
                                             </div>
                                         </p>
@@ -31,7 +36,7 @@
                                     </div>
                                     <div class="card-footer ml-auto mr-auto">
                                         <div class="button-container">
-                                            <button class="btn btn-sm btn-primary">Editar</button>
+                                            <a href="{{route('users.edit', $user->id)}}" class="btn btn-sm btn-info"> Modificar </a>
                                         </div>
                                     </div>
                                 </div>

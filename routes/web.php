@@ -50,13 +50,13 @@ Route::delete('/users/{user}', [App\Http\Controllers\UserController::class, 'des
 
 //RUTAS ADMIN - Crear, almacenar, listar, mostrar, modificar, actualizar y eliminar.
 Route::group(['middleware'=>'auth'], function(){ //"Group" agrupa varias rutas que se muestran solo para determinados usuarios
-    Route::get('/admin/tcreate', [App\Http\Controllers\UserController::class, 'tcreate'])->name('admin.tcreate');
+    Route::get('/trainners/tcreate', [App\Http\Controllers\UserController::class, 'tcreate'])->name('admin.tcreate');
     Route::post('/trainners', [App\Http\Controllers\UserController::class, 'tstore'])->name('admin.tstore');
     Route::get('trainners', [App\Http\Controllers\UserController::class, 'tindex'])->name('admin.tindex');
-    Route::get('/admin/{trainner}', [App\Http\Controllers\UserController::class, 'tshow'])->name('admin.tshow');
-    Route::get('/admin/{trainner}/tedit', [App\Http\Controllers\UserController::class, 'tedit'])->name('admin.tedit');
-    Route::put('/admin/{trainner}', [App\Http\Controllers\UserController::class, 'tupdate'])->name('admin.tupdate');
-    Route::delete('/admin/{trainner}', [App\Http\Controllers\UserController::class, 'tdestroy'])->name('admin.tdelete');
+    Route::get('/trainners/{trainner}', [App\Http\Controllers\UserController::class, 'tshow'])->name('admin.tshow');
+    Route::get('/trainners/{trainner}/tedit', [App\Http\Controllers\UserController::class, 'tedit'])->name('admin.tedit');
+    Route::put('/trainners/{trainner}', [App\Http\Controllers\UserController::class, 'tupdate'])->name('admin.tupdate');
+    Route::delete('/trainners/{trainner}', [App\Http\Controllers\UserController::class, 'tdestroy'])->name('admin.tdelete');
     
     Route::resource('permissions', App\Http\Controllers\PermissionController::class);
     Route::resource('roles', App\Http\Controllers\RoleController::class);
@@ -74,3 +74,10 @@ Route::get('/evento/index',[App\Http\Controllers\ControllerEvent::class, 'index'
 Route::get('/evento/index/{month}',[App\Http\Controllers\ControllerEvent::class, 'index_month'])->name('evento.index_month');
 
 Route::post('/evento/calendario',[App\Http\Controllers\ControllerEvent::class, 'calendario'])->name('evento.calendario');
+
+//RUTAS COMPRA SUSCRIPCIONES
+Route::get('subscription', [App\Http\Controllers\SubsController::class, 'index'])->name('subs.index');
+Route::post('subscription/add', [App\Http\Controllers\SubsController::class, 'add'])->name('subs.add');
+Route::get('subscription/checkout', [App\Http\Controllers\SubsController::class, 'checkout'])->name('subs.checkout');
+Route::post('subscription/checkout', [App\Http\Controllers\SubsController::class, 'pay'])->name('subs.pay');
+Route::post('subscription/remove', [App\Http\Controllers\SubsController::class, 'remove'])->name('subs.remove');

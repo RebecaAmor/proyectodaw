@@ -25,7 +25,9 @@
                                 <div class="table-responsive">
                                     <table class="table">
                                         <thead class=" text-primary">
+                                            @can('trainner_tcreate')    
                                             <th>NIF</th>
+                                            @endcan
                                             <th>Nombre</th>
                                             <th>Email</th>
                                             <th>Especialidad</th>
@@ -35,13 +37,16 @@
                                             @foreach ($trainners as $trainner)
                                                 <tr>
                                                     <!-- <td>{{ $trainner->id}}</td> -->
+                                                    @can('trainner_tcreate')
                                                     <td>{{ $trainner->tnif }}</td>
+                                                    @endcan
                                                     <td>{{ $trainner->tname }}</td>
                                                     <td>{{ $trainner->tmail }}</td>
                                                     <td>{{ $trainner->sport }}</td>
                                                     <!-- <td>{{ $trainner->created_at}}</td> -->
                                                     <td class="td-actions text-right">
                                                         <a href="{{route('admin.tshow', $trainner->id)}}" class="btn btn-info"><i class="material-icons">info</i></a>
+                                                        @can('trainner_tcreate')
                                                         <a href="{{route('admin.tedit', $trainner->id)}}" class="btn btn-warning"><i class="material-icons">edit</i></a>
                                                         <form action="{{route('admin.tdelete', $trainner->id)}}" method="post" style="display:inline-block;" onsubmit="return confirm('Se van a eliminar todos los datos del monitor de forma definitiva')">
                                                         @csrf
@@ -50,6 +55,7 @@
                                                         <i class="material-icons">close</i>
                                                         </button>
                                                         </form>
+                                                        @endcan
                                                     </td>
                                                 </tr>
                                             @endforeach

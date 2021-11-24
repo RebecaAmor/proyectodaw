@@ -7,6 +7,9 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 use Laravel\Fortify\Contracts\CreatesNewUsers;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
 
 class CreateNewUser implements CreatesNewUsers
 {
@@ -34,12 +37,15 @@ class CreateNewUser implements CreatesNewUsers
             'password' => $this->passwordRules(),
         ])->validate();
 
-        return User::create([
+        $user = User::create([
             'name' => $input['name'],
             'nif' => $input['nif'],
             'email' => $input['email'],
             'bday' => $input['bday'],
             'password' => Hash::make($input['password']),
         ]);
+        //Se asigna el rol "User" por defecto al registrarse
+        $user->assignRole('User');
+        return $user;
     }
 }

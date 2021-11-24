@@ -11,43 +11,63 @@
   </div>
   <div class="sidebar-wrapper">
     <ul class="nav">
+      @can('user_create')
       <li class="nav-item{{ $activePage == 'create' ? ' active' : '' }}">
         <a class="nav-link" href="{{ route('users.create') }}">
           <i class="material-icons">dashboard</i>
             <p>{{ __('Crear socio') }}</p>
         </a>
       </li>
+      @endcan
+      @can('user_index')
       <li class="nav-item{{ $activePage == 'users' ? ' active' : '' }}">
         <a class="nav-link" href="http://127.0.0.1:8000/users">
           <i class="material-icons">dashboard</i>
             <p>{{ __('Socios registrados') }}</p>
         </a>
       </li>
+      @endcan
+      @can('user_show')
+      <li class="nav-item{{ $activePage == 'profile' ? ' active' : '' }}">
+        <a class="nav-link" href="{{route('users.show',auth()->user()->id)}}">
+          <i class="material-icons">dashboard</i>
+            <p>{{ __('Mis datos') }}</p>
+        </a>
+      </li>
+      @endcan
+      @can('trainner_tcreate')
       <li class="nav-item{{ $activePage == 'tcreate' ? ' active' : '' }}">
         <a class="nav-link" href="{{ route('admin.tcreate') }}">
           <i class="material-icons">dashboard</i>
             <p>{{ __('Agregar entrenador') }}</p>
         </a>
       </li>
+      @endcan
+      @can('trainner_tindex')
       <li class="nav-item{{ $activePage == 'trainners' ? ' active' : '' }}">
         <a class="nav-link" href="{{ route('admin.tindex') }}">
           <i class="material-icons">dashboard</i>
             <p>{{ __('Entrenadores disponibles') }}</p>
         </a>
       </li>
+      @endcan
+      @can('permission_index')
       <li class="nav-item{{ $activePage == 'permissions' ? ' active' : '' }}">
         <a class="nav-link" href="{{ route('permissions.index') }}">
           <i class="material-icons">dashboard</i>
             <p>{{ __('Permisos') }}</p>
         </a>
       </li>
+      @endcan
+      @can('role_index')
       <li class="nav-item{{ $activePage == 'roles' ? ' active' : '' }}">
         <a class="nav-link" href="{{ route('roles.index') }}">
           <i class="material-icons">dashboard</i>
             <p>{{ __('Roles') }}</p>
         </a>
       </li>
-      <li class="nav-item {{ ($activePage == 'profile' || $activePage == 'user-management') ? ' active' : '' }}">
+      @endcan
+      <!-- <li class="nav-item {{ ($activePage == 'profile' || $activePage == 'user-management') ? ' active' : '' }}">
         <a class="nav-link" data-toggle="collapse" href="#laravelExample" aria-expanded="true">
           <i><img style="width:25px" src="{{ asset('img/laravel.svg') }}"></i>
           <p>{{ __('Susprinción') }}
@@ -78,15 +98,15 @@
         </a>
       </li>
       <li class="nav-item{{ $activePage == 'typography' ? ' active' : '' }}">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="{{ route('evento.index') }}">
           <i class="material-icons">library_books</i>
             <p>{{ __('Lista de clases y horarios') }}</p>
         </a>
       </li>
-      <!-- <li class="nav-item{{ $activePage == 'icons' ? ' active' : '' }}">
+      <li class="nav-item{{ $activePage == 'icons' ? ' active' : '' }}">
         <a class="nav-link" href="#">
           <i class="material-icons">bubble_chart</i>
-          <p>{{ __('Icons') }}</p>
+          <p>{{ __('Mi panel') }}</p>
         </a>
       </li>
       <li class="nav-item{{ $activePage == 'map' ? ' active' : '' }}">
@@ -94,21 +114,15 @@
           <i class="material-icons">location_ons</i>
             <p>{{ __('Maps') }}</p>
         </a>
-      </li> -->
+      </li>
       <li class="nav-item{{ $activePage == 'notifications' ? ' active' : '' }}">
         <a class="nav-link" href="#">
           <i class="material-icons">event</i>
           <p>{{ __('Mis reservas') }}</p>
         </a>
-      </li>
-      <!-- <li class="nav-item{{ $activePage == 'language' ? ' active' : '' }}">
-        <a class="nav-link" href="#">
-          <i class="material-icons">language</i>
-          <p>{{ __('RTL Support') }}</p>
-        </a>
       </li> -->
-      <li class="nav-item active-pro{{ $activePage == 'upgrade' ? ' active' : '' }}">
-        <a class="nav-link text-white bg-danger" href="#">
+      <li class="nav-item active-pro{{ $activePage == 'susbscription' ? ' active' : '' }}">
+        <a class="nav-link text-white bg-danger" href="{{ route('subs.index') }}">
           <i class="material-icons text-white">unarchive</i>
           <p>{{ __('Ver Tarifas') }}</p>
         </a>

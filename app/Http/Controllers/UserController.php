@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\Trainner;
+use Spatie\Permission\Models\Role;
 
 class UserController extends Controller
 {
@@ -19,7 +20,8 @@ class UserController extends Controller
     }
 
     public function create(){
-        return view('users.create');
+        $roles=Role::all()->pluck('name', 'id');
+        return view('users.create', compact('roles'));
     }
 
     public function tcreate(){
@@ -37,20 +39,24 @@ class UserController extends Controller
     }
 
     public function store(Request $request){
-        $request->validate([
-            'name'=>'required|min:3',
-            'nif'=>'required|max:9',
-            'email'=>'required|email|unique:users',
-            'bday'=>'required|max:11',
-            'password'=>'required|min:8',
-        ]);
+        // $request->validate([
+        //     'name'=>'required|min:3',
+        //     'nif'=>'required|max:9',
+        //     'email'=>'required|email|unique:users',
+        //     'bday'=>'required|max:11',
+        //     'password'=>'required|min:8',
+        // ]);
         $user=User::create($request->only('name','nif','email','bday')
         +['password'=>bcrypt($request->input('password')),]);
+
+        $roles=$request->input('roles',[]);
+        $user->syncRoles($roles);
         return redirect()->route('users.show', $user->id)->with('success', 'Socio dado de alta correctamente');
     }
 
     public function show(User $user){
-        // $user=User::findOrFail($id);
+        //$user=User::findOrFail($id);
+        $user->load('roles');
         return view('users.show', compact('user'));
     }
 
@@ -60,7 +66,9 @@ class UserController extends Controller
     }
 
     public function edit(User $user){
-        return view('users.edit', compact('user'));
+        $roles=Role::all()->pluck('name', 'id');
+        $user->load('roles');
+        return view('users.edit', compact('user', 'roles'));
     }
 
     public function tedit(Trainner $trainner){
@@ -68,7 +76,7 @@ class UserController extends Controller
     }
 
     public function update(Request $request, $id){
-        $user=User::findOrFail($id);
+        $user=User::find($id);
         $data=$request->only('name', 'nif', 'email', 'bday');
         $password=$request->input('password');
         if($password)
@@ -83,7 +91,11 @@ class UserController extends Controller
         //     $data['password']=bcrypt($request->password);
         // }
         $user->update($data);
-        return redirect()->route('users.index')->with('success', 'Datos guardados correctamente');
+
+        $roles=$request->input('roles', []);
+        $user->syncRoles($roles);
+
+        return redirect()->route('users.show', $user->id)->with('success', 'Datos actualizados correctamente');
     }
 
     public function tupdate(Request $request, $id){
@@ -106,8 +118,13 @@ class UserController extends Controller
     }
 
     public function destroy(User $user){
+
+        //Para que un usuario no pueda eliminarse a sí mismo
+        if(auth()->user()->id==$user->id){
+            return redirect()->route('users.index')->with('success', 'Este usuario está conectado, no se puede eliminar');
+        }
         $user->delete();
-        return back()->with('success', 'Usuario dado de baja correctamente');
+        return back()->with('success', 'Socio dado de baja correctamente');
     }
 
     public function tdestroy(Trainner $trainner){
