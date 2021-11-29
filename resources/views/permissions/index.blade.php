@@ -39,7 +39,7 @@
                                                     <td>{{ $permission->guard_name}}</td>
                                                     <td>{{ $permission->created_at}}</td>
                                                     <td class="td-actions text-right">
-                                                        <a href="{{route('permissions.show', $permission->id)}}" class="btn btn-info"><i class="material-icons">info</i></a>
+                                                        <!-- <a href="{{route('permissions.show', $permission->id)}}" class="btn btn-info"><i class="material-icons">info</i></a> -->
                                                         <a href="{{route('permissions.edit', $permission->id)}}" class="btn btn-warning"><i class="material-icons">edit</i></a>
                                                         <form action="{{route('permissions.destroy', $permission->id)}}" method="post" style="display:inline-block;" onsubmit="return confirm('Se van a eliminar todos los privilegios del permiso')">
                                                         @csrf

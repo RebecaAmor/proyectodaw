@@ -3,13 +3,13 @@
     <nav class="float-left">
       <ul>
         <li>
-          <a href="#">
+          <a href="{{ route('users.contact') }}">
               {{ __('Contacto') }}
           </a>
         </li>
         <li>
-          <a href="#">
-              {{ __('About Us') }}
+          <a href="{{ route('users.gym') }}">
+              {{ __('El centro') }}
           </a>
         </li>
         <!-- <li>
@@ -28,7 +28,7 @@
       &copy;
       <script>
         document.write(new Date().getFullYear())
-      </script>, made with made with <i class="material-icons">favorite</i> by Rebeca Amor.
+      </script>, made with <i class="material-icons">favorite</i> by Rebeca Amor.
     </div>
   </div>
 </footer>

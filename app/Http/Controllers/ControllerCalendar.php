@@ -26,6 +26,11 @@ class ControllerCalendar extends Controller
 
    }
 
+   public function destroy(Event $event){
+    $event->delete();
+    return back()->with('success', 'Actividad anulada correctamente');
+  }
+
    public function index_month($month){
 
       $data = $this->calendar_month($month);

@@ -25,6 +25,7 @@ class User extends Authenticatable
         'nif',
         'email',
         'bday',
+        'file',
         'password',
     ];
 

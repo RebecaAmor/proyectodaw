@@ -3,15 +3,15 @@
         <nav class="float-left">
         <ul>
             <li>
-            <a href="#">
+            <!-- <a href="{{ route('users.contact') }}">
                 {{ __('Contacto') }}
             </a>
             </li>
             <li>
-            <a href="#">
+            <a href="{{ route('users.gym') }}">
                 {{ __('About Us') }}
             </a>
-            </li>
+            </li> -->
             <!-- <li>
             <a href="http://blog.creative-tim.com">
                 {{ __('Blog') }}

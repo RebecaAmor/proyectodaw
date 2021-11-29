@@ -37,16 +37,17 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <label for="sport" class="col-sm-2 col-form-label">Disciplina</label>
+                                <label for="sport" class="col-sm-2 col-form-label">Actividad</label>
                                 <div class="col-sm-7">
                                 <select name="sport" id="sport">
-                                    <option value="natación">Natación</option>
-                                    <option value="zumba">Zumba</option>
-                                    <option value="fitness">Fitness</option>
-                                    <option value="artmarciales">Artes marciales</option>
-                                    <option value="yoga">Yoga/pilates</option>
-                                    <option value="spinning">Spinning</option>
-                                    <option value="aerobic">Aerobic</option>
+                                    <option value="Natación">Natación</option>
+                                    <option value="Zumba">Zumba</option>
+                                    <option value="Fitness">Fitness</option>
+                                    <option value="Boxeo">Boxeo</option>
+                                    <option value="Yoga">Yoga</option>
+                                    <option value="Pilates">Pilates</option>
+                                    <option value="Spinning">Spinning</option>
+                                    <option value="Aerobic">Aerobic</option>
                                 </select>
                                 </div>
                             </div>

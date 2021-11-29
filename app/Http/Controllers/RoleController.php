@@ -16,8 +16,6 @@ class RoleController extends Controller
      */
     public function index()
     {
-        //abort_if(Gate::denies('role_index'), 403);
-
         $roles = Role::paginate(10);
 
         return view('roles.index', compact('roles'));
@@ -28,10 +26,9 @@ class RoleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function create()
     {
-        //abort_if(Gate::denies('role_create'), 403);
-
         $permissions = Permission::all()->pluck('name', 'id');
         // dd($permissions);
         return view('roles.create', compact('permissions'));
@@ -43,10 +40,10 @@ class RoleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
     public function store(Request $request)
     {
         $role = Role::create($request->only('name'));
-
         // $role->permissions()->sync($request->input('permissions', []));
         $role->syncPermissions($request->input('permissions', []));
 
@@ -59,6 +56,7 @@ class RoleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
     public function show(Role $role)
     {
         //abort_if(Gate::denies('role_show'), 403);

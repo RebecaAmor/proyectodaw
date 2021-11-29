@@ -1,83 +1,47 @@
+@extends('layouts.main', ['activePage'=>'calendario', 'titlePage'=>'Información de actividad'])
+@section('content')
 <html>
-  <head>
-    <title></title>
-    <meta content="">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Exo&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <style>
-    body{
-      font-family: 'Exo', sans-serif;
-    }
-    .header-col{
-      background: #E3E9E5;
-      color:#536170;
-      text-align: center;
-      font-size: 20px;
-      font-weight: bold;
-    }
-    .header-calendar{
-      background: #EE192D;color:white;
-    }
-    .box-day{
-      border:1px solid #E3E9E5;
-      height:150px;
-    }
-    .box-dayoff{
-      border:1px solid #E3E9E5;
-      height:150px;
-      background-color: #ccd1ce;
-    }
-    </style>
-
-  </head>
   <body>
-
-    <div class="container">
-      <div style="height:50px"></div>
-      <h1>< tutofox /> <small>Oh my code!</small></h1>
-      <p class="lead">
-      <h3>Evento</h3>
-      <p>Detalles de evento</p>
-      <a class="btn btn-default"  href="{{ route('evento.index') }}">Atras</a>
-      <hr>
-
-
-
-      <div class="col-md-6">
-        <form action="{{ route('evento.create') }}" method="post">
-          <div class="fomr-group">
-            <h4>Titulo</h4>
-            {{ $event->titulo }}
+    <div class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-8">
+            <div class="card">
+              <div class="card-header card-header-primary">
+                <h4 class="card-title">{{ __('Actividad') }}</h4>
+                <p class="card-category">Detalles de la clase</p>
+              </div>
+              <div class="container">
+                <div class="col-md-9">
+                  <div class="fomr-group">
+                  <br>
+                  <h5>Actividad</h5>
+                    {{ $event->titulo }}
+                  </div>
+                  <br>
+                  <div class="fomr-group">
+                    <h5>Descripción</h5>
+                      {{ $event->descripcion }}
+                  </div>
+                  <br>
+                  <div class="fomr-group">
+                    <h5>Fecha</h5>
+                      {{ $event->fecha }}
+                  </div>
+                  <br>
+                  <div class="fomr-group">
+                    <h5>Hora</h5>
+                      {{ $event->hora }} horas
+                  </div>
+                  <br>
+                  <a class="btn btn-info" href="{{ route('evento.index') }}">Volver</a>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="fomr-group">
-            <h4>Descripcion del Evento</h4>
-            {{ $event->descripcion }}
-          </div>
-          <div class="fomr-group">
-            <h4>Fecha</h4>
-            {{ $event->fecha }}
-          </div>
-          <br>
-          <input type="submit" class="btn btn-info" value="Guardar">
-        </form>
+        </div>
       </div>
-
-
-      <!-- inicio de semana -->
-
-
-    </div> <!-- /container -->
-
-    <!-- Footer -->
-<footer class="page-footer font-small blue pt-4">
-  <!-- Copyright -->
-  <div class="footer-copyright text-center py-3">
-    Developed by Artyom
-  </div>
-  <!-- Copyright -->
-</footer>
-<!-- Footer -->
-
+    </div>       
   </body>
 </html>
+@endsection

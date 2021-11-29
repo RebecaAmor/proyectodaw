@@ -40,20 +40,31 @@
                           <span class="badge badge-danger">No permission added</span>
                       @endforelse
                     </td>
-                    <td class="td-actions text-right">
+                    <!-- <td class="td-actions text-right">
                       <a href="{{ route('roles.show', $role->id) }}" class="btn btn-info"> <i
                           class="material-icons">person</i> </a>
                       <a href="{{ route('roles.edit', $role->id) }}" class="btn btn-success"> <i
                           class="material-icons">edit</i> </a>
-                      <form action="{{ route('roles.destroy', $role->id) }}" method="post"
-                        onsubmit="return confirm('areYouSure')" style="display: inline-block;">
+                      <form action="{{ route('roles.destroy', $role->id) }}" method="post" onsubmit="return confirm('areYouSure')">
                         @csrf
                         @method('DELETE')
                         <button type="submit" rel="tooltip" class="btn btn-danger">
                           <i class="material-icons">close</i>
                         </button>
                       </form>
+                    </td> -->
+                    <td class="td-actions text-left">
+                      <!-- <a href="{{route('roles.show', $role->id)}}" class="btn btn-info"><i class="material-icons">info</i></a> -->
+                      <a href="{{route('roles.edit', $role->id)}}" class="btn btn-warning"><i class="material-icons">edit</i></a>
+                      <form action="{{route('roles.destroy', $role->id)}}" method="post" style="display:inline-block;" onsubmit="return confirm('Se van a eliminar todos los datos del usuario de forma definitiva')">
+                      @csrf
+                      @method('DELETE')
+                      <button class="btn btn btn-danger" type="submit" rel="tooltip">
+                      <i class="material-icons">close</i>
+                      </button>
+                      </form>
                     </td>
+                    </div>
                   </tr>
                   @empty
                   <tr>

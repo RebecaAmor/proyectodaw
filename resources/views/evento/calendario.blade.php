@@ -1,3 +1,5 @@
+@extends('layouts.main', ['activePage'=>'calendario', 'titlePage'=>'Calendario de actividades'])
+@section('content')
 <html>
   <head>
     <title></title>
@@ -35,14 +37,11 @@
 
     <div class="container">
       <div style="height:50px"></div>
-      <h1>< tutofox /> <small>Oh my code!</small></h1>
       <p class="lead">
-      <h3>Calendario - evento</h3>
-      <a class="btn btn-default"  href="{{ route('evento.form') }}">Crear un evento</a>
-
-
+      @can('event_create')
+      <a class="btn btn-default"  href="{{ route('evento.form') }}">Registrar actividad</a>
+      @endcan
       <hr>
-
       <div class="row header-calendar"  >
 
         <div class="col" style="display: flex; justify-content: space-between; padding: 10px;">
@@ -78,7 +77,7 @@
               @foreach  ($dayweek['evento'] as $event)
                   <a class="badge badge-primary" href="{{route('evento.details', $event->id)}}">
                     {{ $event->titulo }}
-                    {{ $event->schedule }}
+                    {{ $event->hora }} h
                   </a>
               @endforeach
             </div>
@@ -95,15 +94,10 @@
 
     <!-- Footer -->
 <footer class="page-footer font-small blue pt-4">
-  <!-- Copyright -->
-  <div class="footer-copyright text-center py-3">
-    Developed by Artyom from
-    <a href="https://www.tutofox.com/">  < tutofox/></a>
-  </div>
-  <!-- Copyright -->
 
 </footer>
 <!-- Footer -->
 
   </body>
 </html>
+@endsection

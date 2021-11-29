@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Event;
 use App\Models\Trainner;
+use App\Models\User;
 
 class ControllerEvent extends Controller
 {
@@ -17,17 +18,20 @@ class ControllerEvent extends Controller
       $this->validate($request, [
       'titulo'=>'required',
       'descripcion'=>'required',
-      'fecha'=>'required'
+      'fecha'=>'required',
+      'hora'=>'required',
+      'sala'=>'required'
      ]);
 
       Event::insert([
         'titulo'=> $request->input("titulo"),
         'descripcion'=> $request->input("descripcion"),
-        'fecha'=> $request->input("fecha")
+        'fecha'=> $request->input("fecha"),
+        'hora'=> $request->input("hora"),
+        'sala'=> $request->input("sala")
       ]);
 
-      return back()->with('success', 'Enviado exitosamente!');
-
+      return back()->with('success', 'Actividad registrada exitosamente');
     }
 
     public function details($id){
@@ -39,7 +43,6 @@ class ControllerEvent extends Controller
       ]);
 
     }
-
 
     // =================== CALENDARIO =====================
 

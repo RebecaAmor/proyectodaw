@@ -14,7 +14,7 @@
       @can('user_create')
       <li class="nav-item{{ $activePage == 'create' ? ' active' : '' }}">
         <a class="nav-link" href="{{ route('users.create') }}">
-          <i class="material-icons">dashboard</i>
+          <i class="material-icons">person_add_alt_1</i>
             <p>{{ __('Crear socio') }}</p>
         </a>
       </li>
@@ -22,7 +22,7 @@
       @can('user_index')
       <li class="nav-item{{ $activePage == 'users' ? ' active' : '' }}">
         <a class="nav-link" href="http://127.0.0.1:8000/users">
-          <i class="material-icons">dashboard</i>
+          <i class="material-icons">people</i>
             <p>{{ __('Socios registrados') }}</p>
         </a>
       </li>
@@ -30,7 +30,7 @@
       @can('user_show')
       <li class="nav-item{{ $activePage == 'profile' ? ' active' : '' }}">
         <a class="nav-link" href="{{route('users.show',auth()->user()->id)}}">
-          <i class="material-icons">dashboard</i>
+          <i class="material-icons">account_circle</i>
             <p>{{ __('Mis datos') }}</p>
         </a>
       </li>
@@ -38,7 +38,7 @@
       @can('trainner_tcreate')
       <li class="nav-item{{ $activePage == 'tcreate' ? ' active' : '' }}">
         <a class="nav-link" href="{{ route('admin.tcreate') }}">
-          <i class="material-icons">dashboard</i>
+          <i class="material-icons">person_add_alt</i>
             <p>{{ __('Agregar entrenador') }}</p>
         </a>
       </li>
@@ -46,15 +46,37 @@
       @can('trainner_tindex')
       <li class="nav-item{{ $activePage == 'trainners' ? ' active' : '' }}">
         <a class="nav-link" href="{{ route('admin.tindex') }}">
-          <i class="material-icons">dashboard</i>
+          <i class="material-icons">people_outline</i>
             <p>{{ __('Entrenadores disponibles') }}</p>
         </a>
       </li>
       @endcan
+      @can('event_create')
+      <li class="nav-item{{ $activePage == 'evento' ? ' active' : '' }}">
+        <a class="nav-link" href="{{ route('evento.form') }}">
+          <i class="material-icons">edit_calendar</i>
+            <p>{{ __('Agregar actividad') }}</p>
+        </a>
+      </li>
+      @endcan
+      @can('event_index')
+      <li class="nav-item{{ $activePage == 'calendario' ? ' active' : '' }}">
+        <a class="nav-link" href="{{ route('evento.index') }}">
+          <i class="material-icons">date_range</i>
+            <p>{{ __('Calendario de actividades') }}</p>
+        </a>
+      </li>
+      @endcan
+      <li class="nav-item{{ $activePage == 'news' ? ' active' : '' }}">
+        <a class="nav-link" href="{{ route('news.nindex') }}">
+          <i class="material-icons">text_snippet</i>
+            <p>{{ __('Avisos del centro') }}</p>
+        </a>
+      </li>
       @can('permission_index')
       <li class="nav-item{{ $activePage == 'permissions' ? ' active' : '' }}">
         <a class="nav-link" href="{{ route('permissions.index') }}">
-          <i class="material-icons">dashboard</i>
+          <i class="material-icons">lock</i>
             <p>{{ __('Permisos') }}</p>
         </a>
       </li>
@@ -62,7 +84,7 @@
       @can('role_index')
       <li class="nav-item{{ $activePage == 'roles' ? ' active' : '' }}">
         <a class="nav-link" href="{{ route('roles.index') }}">
-          <i class="material-icons">dashboard</i>
+          <i class="material-icons">admin_panel_settings</i>
             <p>{{ __('Roles') }}</p>
         </a>
       </li>

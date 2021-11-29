@@ -3,7 +3,7 @@
 <div class="content">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-8">
                 <div class="card">
                     <div class="card-header card-header-primary">
                         <h4 class="card-title">{{ __('Socio') }}</h4>
@@ -11,7 +11,7 @@
                     </div>
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-md-4">
+                            <div class="col-md-8">
                                 <div class="card card-user">
                                     <div class="card-body">
                                         <p class="card-text">
@@ -22,6 +22,11 @@
                                                     {{$user->email}}<br>
                                                     {{$user->bday}}<br>
                                                     {{$user->created_at}}<br>
+                                                    <!-- <form action="/guardarimagen" enctype="multipart/form-data" method="POST">
+                                                        @csrf
+                                                        <input type="file" name="file">
+                                                        <button class="btn btn-sm" type="submit">Subir foto</button>
+                                                    </form> -->
                                                     @forelse ($user->roles as $role)
                                                         <span class="badge rounded-pill bg-dark text-white">{{ $role->name }}</span>
                                                     @empty
@@ -36,7 +41,7 @@
                                     </div>
                                     <div class="card-footer ml-auto mr-auto">
                                         <div class="button-container">
-                                            <a href="{{route('users.edit', $user->id)}}" class="btn btn-sm btn-info"> Modificar </a>
+                                            <a href="{{route('users.edit', $user->id)}}" class="btn btn-info"> Modificar </a>
                                         </div>
                                     </div>
                                 </div>

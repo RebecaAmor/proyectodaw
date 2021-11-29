@@ -1,4 +1,4 @@
-@extends('layouts.main', ['activePage'=>'', 'titlePage'=>'Información de socio'])
+@extends('layouts.main', ['activePage'=>'evento', 'titlePage'=>'Registro de actividades'])
 @section('content')
 <html>
   <head>
@@ -7,104 +7,71 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Exo&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <style>
-    body{
-      font-family: 'Exo', sans-serif;
-    }
-    .header-col{
-      background: #E3E9E5;
-      color:#536170;
-      text-align: center;
-      font-size: 20px;
-      font-weight: bold;
-    }
-    .header-calendar{
-      background: #EE192D;color:white;
-    }
-    .box-day{
-      border:1px solid #E3E9E5;
-      height:150px;
-    }
-    .box-dayoff{
-      border:1px solid #E3E9E5;
-      height:150px;
-      background-color: #ccd1ce;
-    }
-    </style>
-
   </head>
   <body>
 
-    <div class="container">
-      <div style="height:50px"></div>
-      <h1>< tutofox /> <small>Oh my code!</small></h1>
-      <p class="lead">
-      <h3>Evento</h3>
-      <p>Formulario de evento</p>
-      <a class="btn btn-default"  href="{{ route('evento.index') }}">Atras</a>
-      <hr>
-
-      @if (count($errors) > 0)
-        <div class="alert alert-danger">
-         <button type="button" class="close" data-dismiss="alert">×</button>
-         <ul>
-          @foreach ($errors->all() as $error)
-           <li>{{ $error }}</li>
-          @endforeach
-         </ul>
+  <div class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header card-header-primary">
+              <h4 class="card-title">{{ __('Agregar actividad ') }}</h4>
+              <p class="card-category">{{ __('Registrar una nueva actividad en el calendario') }}</p>
+            </div>
+            <div class="card-body ">
+              @if (count($errors) > 0)
+                <div class="alert alert-danger">
+                  <button type="button" class="close" data-dismiss="alert">×</button>
+                  <ul>
+                    @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                  </ul>
+                </div>
+              @endif
+              @if ($message = Session::get('success'))
+              <div class="alert alert-success alert-block">
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                  <strong>{{ $message }}</strong>
+              </div>
+              @endif
+              <div class="col-md-6">
+                <form action="{{ route('evento.create') }}" method="POST">
+                  @csrf
+                  <div class="fomr-group">
+                    <label>Nombre de la clase</label>
+                    <input type="text" class="form-control" name="titulo">
+                  </div>
+                  <div class="fomr-group">
+                    <label>Descripción</label>
+                    <input type="text" class="form-control" name="descripcion">
+                  </div>
+                  <div class="fomr-group">
+                    <label>Fecha</label>
+                    <input type="date" class="form-control" name="fecha">
+                  </div>
+                  <div class="fomr-group">
+                    <label>Hora</label>
+                    <input type="time" class="form-control" name="hora">
+                  </div>
+                  <div class="fomr-group">
+                    <label>Lugar</label>
+                    <input type="text" class="form-control" name="sala">
+                  </div>
+                  <br>
+                  <input type="submit" class="btn btn-info" value="Guardar">
+                  <a class="btn btn-default"  href="{{ route('evento.index') }}">Cancelar</a>
+                </form>
+              </div>
+            </div>
+          </div>
         </div>
-       @endif
-       @if ($message = Session::get('success'))
-       <div class="alert alert-success alert-block">
-        <button type="button" class="close" data-dismiss="alert">×</button>
-          <strong>{{ $message }}</strong>
-       </div>
-       @endif
-
-
-      <div class="col-md-6">
-        <form action="{{ route('evento.create') }}" method="post">
-          @csrf
-          <div class="fomr-group">
-            <label>Titulo</label>
-            <input type="text" class="form-control" name="titulo">
-          </div>
-          <div class="fomr-group">
-            <label>Descripcion del Evento</label>
-            <input type="text" class="form-control" name="descripcion">
-          </div>
-          <div class="fomr-group">
-            <label>Fecha</label>
-            <input type="date" class="form-control" name="fecha">
-          </div>
-          <div class="fomr-group">
-            <label>Hora</label>
-            <input type="time" class="form-control" name="schedule">
-          </div>
-          <div class="fomr-group">
-            <label>Monitor</label>
-            <select class="form-control" id="type" name="trainner">
-              <option value="yoga">Sachin Tendulkar</option>
-            </select>
-          </div>
-          <div class="fomr-group">
-            <label>Lugar</label>
-            <input type="text" class="form-control" name="room">
-          </div>
-          <br>
-          <input type="submit" class="btn btn-info" value="Guardar">
-        </form>
       </div>
-
-    </div> <!-- /container -->
+    </div>
 
     <!-- Footer -->
 <footer class="page-footer font-small blue pt-4">
-  <!-- Copyright -->
-  <div class="footer-copyright text-center py-3">
-    Developed by Artyom
-  </div>
-  <!-- Copyright -->
 
 </footer>
 <!-- Footer -->
