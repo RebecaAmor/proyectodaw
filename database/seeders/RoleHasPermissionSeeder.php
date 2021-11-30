@@ -23,9 +23,8 @@ class RoleHasPermissionSeeder extends Seeder
 
         // User
         $user_permissions = $admin_permissions->filter(function($permission) {
-            //Los números es la cantidad de caracteres
-            return substr($permission->name, 0, 5) != 'user_' &&
-                substr($permission->name, 0, 5) != 'role_' &&
+            //Los números es la cantidad de caracteres del permiso
+            return substr($permission->name, 0, 5) != 'role_' &&
                 substr($permission->name, 0, 11) != 'permission_';
         });
         Role::findOrFail(2)->permissions()->sync($user_permissions);

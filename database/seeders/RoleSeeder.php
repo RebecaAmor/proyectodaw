@@ -18,7 +18,7 @@ class RoleSeeder extends Seeder
 
         $roles = [
             'Admin', //Rol único del admin ("superpoderes")
-            'User' //Rol por defecto
+            'User' //Rol por defecto (no socio)
         ];
 
         foreach ($roles as $role) {

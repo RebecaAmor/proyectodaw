@@ -42,6 +42,12 @@ class PermissionSeeder extends Seeder
             'trainner_tedit',
             'trainner_tdestroy',
 
+            'event_index',
+            'event_create',
+            'event_show',
+            'event_edit',
+            'event_destroy',
+
         ];
 
         foreach ($permissions as $permission) {
