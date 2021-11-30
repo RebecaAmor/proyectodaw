@@ -17,6 +17,7 @@ class SubsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
         $subscriptions=Subscription::all();
@@ -28,6 +29,7 @@ class SubsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function add(Request $request){
         $subscription=Subscription::find($request->sub_id);
         Cart::add(
@@ -45,12 +47,15 @@ class SubsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
     public function checkout()
     {
-        // $params=[
-        //     'subname'=> 'Shopping cart checkout',
-        // ];
         return view('subs.checkout');
+    }
+
+    public function pay(Request $request, Role $role, User $user)
+    {
+        return back()->with('success', "El pago se ha completado con éxito. ¡YA ERES SOCIO!");
     }
 
     /**
@@ -59,9 +64,10 @@ class SubsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    
     public function remove(Request $request)
     {
-        //$subscription=Subscription::where('id',$request->sub_id)->firstOrFail();
+        $subscription=Subscription::where('id',$request->sub_id)->firstOrFail();
         Cart::remove([
             'id'=>$subscription->id,
         ]);
@@ -97,7 +103,7 @@ class SubsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function clear(Request $request)
     {
         //
     }

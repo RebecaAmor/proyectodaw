@@ -23,6 +23,7 @@ class PermissionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function create()
     {
         return view('permissions.create');
@@ -34,6 +35,7 @@ class PermissionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
     public function store(Request $request)
     {
         // Permission::create($request->all()); "Only" evita más vulnerabilidades que "All"
@@ -47,6 +49,7 @@ class PermissionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
     public function show(Permission $permission)
     {
         return view('permissions.show', compact('permission'));
@@ -58,6 +61,7 @@ class PermissionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
     public function edit(Permission $permission)
     {
         return view('permissions.edit', compact('permission'));
@@ -70,6 +74,7 @@ class PermissionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
     public function update(Request $request, Permission $permission)
     {
         $permission->update($request->only('name'));
@@ -82,6 +87,7 @@ class PermissionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    
     public function destroy(Permission $permission)
     {
         $permission->delete();
