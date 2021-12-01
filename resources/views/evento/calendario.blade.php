@@ -38,7 +38,9 @@
     <div class="container">
       <div style="height:50px"></div>
       <p class="lead">
+      @can('event_create')
       <a class="btn btn-default"  href="{{ route('evento.form') }}">Registrar actividad</a>
+      @endcan
       <hr>
       <div class="row header-calendar"  >
 
@@ -75,7 +77,7 @@
               @foreach  ($dayweek['evento'] as $event)
                   <a class="badge badge-primary" href="{{route('evento.details', $event->id)}}">
                     {{ $event->titulo }}
-                    {{ $event->schedule }}
+                    {{ $event->hora }} h
                   </a>
               @endforeach
             </div>
