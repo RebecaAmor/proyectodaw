@@ -30,6 +30,7 @@
                                             <th>Nombre</th>
                                             <th>Email</th>
                                             <th>Fecha de alta</th>
+                                            <th>Roles</th>
                                             <th class="text-right">Acciones</th>
                                         </thead>
                                         <tbody>
@@ -40,14 +41,23 @@
                                                     <td>{{ $user->name}}</td>
                                                     <td>{{ $user->email}}</td>
                                                     <td>{{ $user->created_at}}</td>
+                                                    <td>
+                                                        @forelse ($user->roles as $role)
+                                                            <span class="badge badge-info">{{ $role->name }}</span>
+                                                        @empty
+                                                            <span class="badge badge-danger">No roles</span>
+                                                        @endforelse
+                                                    </td>
                                                     <td class="td-actions text-right">
                                                         <a href="{{route('users.show', $user->id)}}" class="btn btn-info"><i class="material-icons">info</i></a>
-                                                        <button class="btn btn btn-warning" type="button">
-                                                        <i class="material-icons">edit</i>
+                                                        <a href="{{route('users.edit', $user->id)}}" class="btn btn-warning"><i class="material-icons">edit</i></a>
+                                                        <form action="{{route('users.delete', $user->id)}}" method="post" style="display:inline-block;" onsubmit="return confirm('Se van a eliminar todos los datos del usuario de forma definitiva')">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button class="btn btn btn-danger" type="submit" rel="tooltip">
+                                                        <i class="material-icons">close</i>
                                                         </button>
-                                                        <button class="btn btn btn-danger" type="button">
-                                                        <i class="material-icons">disabled_by_default</i>
-                                                        </button>
+                                                        </form>
                                                     </td>
                                                 </tr>
                                             @endforeach
