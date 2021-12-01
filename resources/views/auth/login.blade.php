@@ -9,7 +9,6 @@
     <div class="col-lg-4 col-md-6 col-sm-8 ml-auto mr-auto">
       <form class="form" method="POST" action="{{ route('login') }}">
         @csrf
-
         <div class="card card-login card-hidden mb-3">
           <div class="card-header card-header-primary text-center">
             <h4 class="card-title"><strong>{{ __('Login') }}</strong></h4>
@@ -26,7 +25,7 @@
             </div>
           </div>
           <div class="card-body">
-            <p class="card-description text-center">{{ __('Inicia sesión con tu') }} <strong>NIF</strong> {{ __(' y tu ') }}<strong>contraseña</strong></p>
+            <p class="card-description text-center">{{ __('Inicia sesión con tu') }} <strong>email</strong> {{ __(' y tu ') }}<strong>contraseña</strong></p>
             <div class="bmd-form-group{{ $errors->has('email') ? ' has-danger' : '' }}">
               <div class="input-group">
                 <div class="input-group-prepend">
@@ -42,22 +41,6 @@
                 </div>
               @endif
             </div>
-            <!-- NIF -->
-            <!-- <div class="bmd-form-group{{ $errors->has('nif') ? ' has-danger' : '' }}">
-              <div class="input-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text">
-                    <i class="material-icons">badge</i>
-                  </span>
-                </div>
-                <input type="nif" name="nif" class="form-control" placeholder="{{ __('NIF...') }}" value="{{ old('nif', null) }}" required autocomplete="nif" autofocus>
-              </div>
-              @if ($errors->has('nif'))
-                <div id="nif-error" class="error text-danger pl-3" for="nif" style="display: block;">
-                  <strong>{{ $errors->first('nif') }}</strong>
-                </div>
-              @endif
-            </div> -->
             <div class="bmd-form-group{{ $errors->has('password') ? ' has-danger' : '' }} mt-3">
               <div class="input-group">
                 <div class="input-group-prepend">
