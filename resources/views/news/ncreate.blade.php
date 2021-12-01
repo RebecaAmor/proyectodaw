@@ -13,15 +13,15 @@
                         </div>
                         <div class="card-body ">
                             <div class="row">
-                                <label for="ntitle" class="col-sm-2 col-form-label">Título</label>
+                                <label for="title" class="col-sm-2 col-form-label">Título</label>
                                 <div class="col-sm-7">
-                                    <input type="text" class="form-control" name="ntitle" autofocus>
+                                    <input type="text" class="form-control" name="title" autofocus>
                                 </div>
                             </div>
                             <div class="row">
-                                <label for="ntext" class="col-sm-2 col-form-label">Descripción</label>
+                                <label for="text" class="col-sm-2 col-form-label">Descripción</label>
                                 <div class="col-sm-7">
-                                    <input type="text" class="form-control" name="ntext">
+                                    <input type="text" class="form-control" name="text">
                                 </div>
                             </div>
                         </div>

@@ -27,7 +27,7 @@
                                 <div class="table-responsive">
                                     <table class="table">
                                         <thead class=" text-primary">
-                                            <th>Ref.</th>
+                                            <!-- <th>Ref.</th> -->
                                             <th>Título</th>
                                             <th>Detalles</th>
                                             <th>Fecha de publicación</th>
@@ -38,7 +38,7 @@
                                         <tbody>
                                             @foreach ($news as $aviso)
                                                 <tr>
-                                                    <td>{{ $aviso->id }}</td>
+                                                    <!-- <td>{{ $aviso->id }}</td> -->
                                                     <td>{{ $aviso->title}}</td>
                                                     <td>{{ $aviso->text }}</td>
                                                     <td>{{ $aviso->created_at}}</td>

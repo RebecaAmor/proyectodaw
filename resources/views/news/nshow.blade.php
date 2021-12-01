@@ -3,7 +3,7 @@
 <div class="content">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-10">
                 <div class="card">
                     <div class="card-header card-header-primary">
                         <h4 class="card-title">{{ __('Aviso') }}</h4>
@@ -11,22 +11,19 @@
                     </div>
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-md-4">
+                            <div class="col-md-8">
                                 <div class="card card-user">
                                     <div class="card-body">
                                         <p class="card-text">
-                                            <div class="author">
-                                                <h5 class="title mt-3">{{$news->title}}</h5>
-                                                <p class="description">
-                                                    Fecha de publicación: {{$news->created_at}}
-                                                </p>
-                                                <p class="description">
-                                                    Referencia: {{$news->id}}
-                                                </p>
-                                            </div>
+                                            <strong>Fecha y hora de publicación:</strong> {{$news->created_at}}</strong>
                                         </p>
-                                        <div class="card-description">
-                                            {{$news->text}}
+                                        <div class="card-text">
+                                        <strong>{{$news->text}}</strong>
+                                        </div>
+                                    </div>
+                                    <div class="card-footer ml-auto mr-auto">
+                                        <div class="button-container">
+                                            <a href="{{route('news.nindex', $news->id)}}" class="btn btn-sm btn-primary">Volver</a>
                                         </div>
                                     </div>
                                     @can('trainner_tedit')
