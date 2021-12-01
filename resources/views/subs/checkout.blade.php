@@ -38,9 +38,11 @@
                                                             <input type="submit" name="btn" class="btn btn-link byn-sm text-danger" value="X">
                                                         </form>
                                                     </td>
-                                                    <td><form action="https://www.paypal.com/signin" method="post">
+                                                    <td>
+                                                        <form action="{{route('subs.pay')}}" method="POST">
                                                         @csrf
-                                                        <input type="submit" name="btn" class="btn btn-success btn-block" value="PAGAR CON PAYPAL"></form>
+                                                        <input type="submit" name="btn" class="btn btn-success" value="PAGAR">
+                                                        </form>
                                                     </td>
                                                 </tr>
                                             @endforeach

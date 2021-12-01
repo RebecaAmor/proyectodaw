@@ -6,11 +6,6 @@
             <div class="col-md-12">
                 <div class="row">
                     <div class="col-md-12">
-                        <div>
-                            @if (count(Cart::getContent()))
-                                <a href="{{route('subs.checkout')}}">FINALIZAR PEDIDO <span class="badge badge-danger">{{count(Cart::getContent())}}</span>
-                            @endif
-                        </div>
                         <div class="card">
                             <div class="card-header card-header-primary">
                                 <h4 class="card-title">{{ __('Suscripciones') }}</h4>
@@ -39,6 +34,12 @@
                                         @empty
                                         @endforelse
                                     </div>
+                                </div>
+                                <br>
+                                <div class="card-title text-center">
+                                    @if (count(Cart::getContent()))
+                                        <a href="{{route('subs.checkout')}}" class="btn btn-md btn-primary">FINALIZAR PEDIDO <span class="badge badge-danger">{{count(Cart::getContent())}}</span></a>
+                                    @endif
                                 </div>
                             </div>
                             <!-- FIN Contenedor principal -->
